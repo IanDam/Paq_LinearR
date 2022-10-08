@@ -1,7 +1,7 @@
 class LinearRegresion:
   def __init__(self,x:list,y:list):
-    import scipy.stats as st
     import numpy as np
+    import scipy.stats as st
     self.X=x
     self.y=y
     self.x=np.c_[np.ones(len(self.X)),self.X]
@@ -39,7 +39,7 @@ class LinearRegresion:
       en="Se presenta heterocedasticidad"
     else:
       en="No se presenta heterocedasticidad"
-    return [LM,pval,en], self.ee, _err
+    return [LM,pval,en]
   def Jb(self):
     err=self.y - np.dot(self.x,np.dot((np.linalg.inv(np.dot(self.x.T,self.x))),(np.dot(self.x.T,self.y))))
     kur=st.kurtosis(err)
