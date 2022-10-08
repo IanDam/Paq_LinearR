@@ -1,5 +1,7 @@
 class LinearRegresion:
   def __init__(self,x:list,y:list):
+    import scipy.stats as st
+    import numpy as np
     self.X=x
     self.y=y
     self.x=np.c_[np.ones(len(self.X)),self.X]
